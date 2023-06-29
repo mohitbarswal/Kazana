@@ -4,3 +4,6 @@ from django.shortcuts import render
 
 def home_page_fun(request):
     return render(request, 'Home.html')
+
+def create_subadmin_fun(request):
+    return render(request, 'Createsub_admin.html')

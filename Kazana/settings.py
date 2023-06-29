@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'kazana_app',
     'adminlte3',
     'adminlte3_theme',
+    'ckeditor',
 ]
 
 MIDDLEWARE = [
