@@ -1,6 +1,21 @@
 {% extends 'Base.html' %} 
 {% block content %}
+<style>
+	.errorlist {
+		list-style-type: none;
+		color: red;
+		font-size: 12px;
+		margin: 0;
+	}
+	.mstag {
+		color: Green;
+	}
+
+</style>
 <center>
     <h4 class="alert alert-primary">Home</h4>
+    {% if messages %} {% for message in messages %}
+	<span class="mstag">{{ message }}</span>
+	{% endfor %} {% endif %}
 </center>
 {% endblock content %}
