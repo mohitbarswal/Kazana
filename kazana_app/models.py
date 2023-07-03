@@ -4,9 +4,14 @@ from ckeditor.fields import RichTextField
 
 
 # Create your models here.
-gender =(('M', 'Male'),
-        ('F', 'Female'))
-usertype = (('company', 'Company'), ('user', 'User'))
+gender = (
+    ('M', 'Male'),
+    ('F', 'Female')
+)
+usertype = (
+            ('company', 'Company'),
+            ('user', 'User'))
+
 payment_type = (('one', 'One Time'), ('recurring', 'Recurring'))
 onetoten = (('1', '1'), ('2', '2'), ('3', '3'), ('4', '4'), ('5', '5'), ('6', '6'),
              ('7', '7'), ('8', '8'), ('9', '9'), ('10', '10'))
@@ -18,7 +23,7 @@ rate_of_return = (('10%', '10%'), ('20%', '20%'), ('30%', '30%'), ('40%', '40%')
 class User_Detail(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True, related_name="user_detail_key")
     date_of_birth = models.DateField(auto_now=False, blank=True, null=True)
-    gender = models.CharField(choices=gender, max_length=50, blank=True, null=True)
+    gender = models.CharField(choices=gender, default='', max_length=50, blank=True, null=True)
     amount_invested = models.DecimalField( max_digits=7,decimal_places=2, blank=True, null=True)
     phone_no = models.CharField(max_length=12, blank=True, null=True)
     user_type = models.CharField(choices=usertype, max_length=12, blank=True, null=True)

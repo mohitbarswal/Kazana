@@ -1,0 +1,31 @@
+{% extends 'Base.html' %}
+{% block content %}
+<style>
+	.errorlist {
+		list-style-type: none;
+		color: red;
+		font-size: 12px;
+		margin: 0;
+	}
+	.mstag {
+		color: Green;
+	}
+
+</style>
+<center>
+    <h4 class="alert alert-primary">Sub-admin Management</h4>
+    {% if messages %} 
+        {% for message in messages %}
+            <span class="mstag">{{ message }}</span>
+        {% endfor %} 
+    {% endif %}
+    <form method="POST"  enctype="multipart/form-data">
+            {% csrf_token %}
+            {{Sub_update_form.as_p}}
+            {{subdetail_update_form.as_p}}
+            <button type="submit" class="btn btn-primary">Update Sub Admin</button>
+            <a href="/createsubadmin/" class="btn btn-secondary">Back</a>       
+            
+    </form>
+</center>
+{% endblock content %}

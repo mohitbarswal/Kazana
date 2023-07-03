@@ -29,19 +29,19 @@
             </div>
         </div>
         <div>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#subadminmodal">
-                Add Sub-admin
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#usermodal">
+                Add User
             </button>
         </div>
     </form>
 
     <!-- Modal -->
-    <div class="modal fade" id="subadminmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    <div class="modal fade" id="usermodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header bg-info">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Sub Admin Detail</h5>
+                    <h5 class="modal-title" id="exampleModalLongTitle">User Detail</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -50,10 +50,10 @@
                     <div class="modal-body">
                         {% csrf_token %}
                         {{Usercreation_form.as_p}}
-                        {{subadminform.as_p}}
+                        {{user_detail_form.as_p}}
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Add Sub Admin</button>
+                        <button type="submit" class="btn btn-primary">Add User</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </div>
                 </form>
@@ -64,7 +64,7 @@
     <br><table class="table table-hover">
         <thead>
           <tr>
-            <th scope="col">Sr no.</th>
+            <th scope="col">User Id</th>
             <th scope="col">Name</th>
             <th scope="col">Email Address</th>
             <th scope="col">Phone Number</th>
@@ -72,9 +72,9 @@
           </tr>
         </thead>
         <tbody>
-    {% for sub in Subadmin_details %}
+    {% for sub in user_details %}
           <tr>
-            <td>{{forloop.counter}}</td>
+            <td>{{sub.id}}</td>
             <td>{{sub.first_name}}&nbsp;{{sub.last_name}}</td>
             <td>{{sub.email}}</td>
             <td>
